@@ -5,6 +5,7 @@ import 'package:exam/tabs/third_tab.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:badges/badges.dart' as badges;
+import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 import 'container.dart';
 
@@ -19,9 +20,10 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   int index=0;
   final items =[
-    Image.asset("assets/images/Frame 24.png"),
-    Image.asset("assets/images/Frame 24.png"),
-    Image.asset("assets/images/Frame 24.png"),
+    Container(
+        child: Image.asset("assets/images/Frame 24.png")),
+    Container(child: Image.asset("assets/images/Frame 24.png")),
+    Container(child: Image.asset("assets/images/Frame 24.png")),
   ];
   int currentIndex=0;
 
@@ -41,19 +43,19 @@ class _HomePageState extends State<HomePage> {
              items: [
                BottomNavigationBarItem(
                    icon: ImageIcon(AssetImage("assets/images/home-05.png")),
-                 label: "home"
+                 label: ""
                ),
                BottomNavigationBarItem(
                  icon: ImageIcon(AssetImage("assets/images/grid-01.png")),
-                   label: "home"
+                   label: ""
                ),
                BottomNavigationBarItem(
                  icon: ImageIcon(AssetImage("assets/images/calendar.png")),
-                   label: "home"
+                   label: ""
                ),
                BottomNavigationBarItem(
                  icon: ImageIcon(AssetImage("assets/images/user-03.png")),
-                   label: "home"
+                   label: ""
                ),
              ]),
       body: SingleChildScrollView(
@@ -120,8 +122,6 @@ class _HomePageState extends State<HomePage> {
                       fontWeight: FontWeight.w600
                   ),),
                   Spacer(),
-                  Row(
-                    children: [
                       Text("See more",
                         style: TextStyle(
                             fontSize: 16,
@@ -130,37 +130,33 @@ class _HomePageState extends State<HomePage> {
                         ),),
                       Icon(Icons.arrow_forward_ios_rounded,
                           color: Color(0xFF027A48))
-                    ],)
+
                 ],
               ),
               SizedBox(height: 20,),
-              SizedBox(
-                height: 100,
-                child: CarouselSlider(
-                  options: CarouselOptions(
-                    onPageChanged:(index,reason){
-                      setState(() {
-                        currentIndex=index;
-                      });
-                    } ,
-                    height: 200,
-                    aspectRatio: 16/9,
-                    viewportFraction: 0.8,
-                    initialPage: 0,
-                    enableInfiniteScroll: true,
-                    reverse: false,
-                    //autoPlay: true,
-                    autoPlayInterval: Duration(seconds: 3),
-                    autoPlayAnimationDuration: Duration(milliseconds: 800),
-                    autoPlayCurve: Curves.fastOutSlowIn,
-                    enlargeCenterPage: true,
-                    enlargeFactor: 0.3,
-                    //onPageChanged: callbackFunction,
-                    scrollDirection: Axis.horizontal,
-                  ),
-                  items:items,
-
+              CarouselSlider(
+                options: CarouselOptions(
+                  onPageChanged:(index,reason){
+                    setState(() {
+                      currentIndex=index;
+                    });
+                  } ,
+                  height: 200,
+                  aspectRatio: 2.0,
+                  viewportFraction: 0.8,
+                  initialPage: 0,
+                  enableInfiniteScroll: true,
+                  reverse: false,
+                  autoPlay: true,
+                  autoPlayInterval: Duration(seconds: 3),
+                  autoPlayAnimationDuration: Duration(milliseconds: 800),
+                  autoPlayCurve: Curves.fastOutSlowIn,
+                  enlargeCenterPage: true,
+                  enlargeFactor: 0.3,
+                  //onPageChanged: callbackFunction,
+                  scrollDirection: Axis.horizontal,
                 ),
+                items:items,
               ),
               SizedBox(height: 20,),
 
