@@ -8,9 +8,13 @@ class ContainerData extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      decoration: BoxDecoration(
+        color: color,
+        borderRadius: BorderRadius.circular(7)
+      ),
       width: 151,
       height: 61,
-      color: color,
+
       child: Row(
         children: [
           Image.asset(image),
