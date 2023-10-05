@@ -3,6 +3,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:badges/badges.dart' as badges;
 
+import '../carousel_slider.dart';
+
 class SecondTab extends StatefulWidget {
   static const String routeName = "secondTab";
 
@@ -118,6 +120,8 @@ class _SecondTabState extends State<SecondTab> {
                         color: Color(0xFF027A48))
                   ],
                 ),
+                SizedBox(height: 20,),
+
                 CarouselSlider(
                   options: CarouselOptions(
                     onPageChanged: (index, reason) {
@@ -125,7 +129,7 @@ class _SecondTabState extends State<SecondTab> {
                         currentIndex = index;
                       });
                     },
-                    height: 200,
+                    height: 150,
                     aspectRatio: 2.0,
                     viewportFraction: 0.8,
                     initialPage: 0,
@@ -140,8 +144,15 @@ class _SecondTabState extends State<SecondTab> {
                     //onPageChanged: callbackFunction,
                     scrollDirection: Axis.horizontal,
                   ),
-                  items: img,
+                  items: [
+                    Imgs("assets/images/Frame_.png", "self-care",
+                        "10 Easy Self-Care Ideas That Can \n Help Boost Your Health"),
+
+                    Imgs("assets/images/Frame_2.png","CYCLE",
+                        "How to take care of Menstrual \n Hygiene during Menstrual Cycle")
+                  ],
                 ),
+                SizedBox(height: 20,),
                 Row(
                   children: [
                     Text(
@@ -151,9 +162,7 @@ class _SecondTabState extends State<SecondTab> {
                     )
                   ],
                 ),
-                SizedBox(
-                  height: 20,
-                ),
+                SizedBox(height: 20,),
                 Container(
                   margin: EdgeInsets.all(8),
                   decoration: BoxDecoration(
@@ -168,15 +177,13 @@ class _SecondTabState extends State<SecondTab> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            """Connect with doctors &
-get suggestions""",
+                            "Connect with doctors & \n get suggestions",
                             style: TextStyle(
                                 fontSize: 14, fontWeight: FontWeight.bold),
                           ),
                           SizedBox(height: 6,),
                           Text(
-                            """Connect now and get 
-expert insights """,
+                            "Connect now and get \n expert insights ",
                           ),
                           SizedBox(height: 14,),
                           Container(
